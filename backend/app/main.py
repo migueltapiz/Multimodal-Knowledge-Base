@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-# from app.api.ingest import router as ingest_router
+from app.api.ingest import router as ingest_router
 from app.api.health import router as health_router
 
 app = FastAPI(
@@ -9,4 +9,4 @@ app = FastAPI(
 )
 
 app.include_router(health_router, prefix="/health", tags=["Health"])
-# app.include_router(ingest_router, prefix="/ingest", tags=["Ingestion"])
+app.include_router(ingest_router, prefix="/ingest", tags=["Ingestion"])

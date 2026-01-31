@@ -4,11 +4,13 @@ uvicorn[standard]
 langchain
 langchain-community
 langchain-openai
+langchain-chroma
+
 
 chromadb
 
 python-multipart
-pydantic
+pydantic>=2
 python-dotenv
 
 openai

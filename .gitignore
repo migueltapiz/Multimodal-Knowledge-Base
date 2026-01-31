@@ -1,4 +1,4 @@
-#Specific configuration files
+# Specific configuration files
 .env
 
 # Python bytecode
@@ -6,3 +6,7 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
+
+# Dygested docs
+*.bin
+*.sqlite3
