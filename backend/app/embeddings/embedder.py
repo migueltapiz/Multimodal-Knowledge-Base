@@ -5,7 +5,5 @@ def embed_and_store(texts: list[str], metadata: dict):
 
     vector_store.add_texts(
         texts=texts,
-        metadata=metadatas
+        metadatas=metadatas
     )
-
-    vector_store.persist()
