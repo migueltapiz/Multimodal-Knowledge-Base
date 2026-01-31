@@ -1,2 +1,8 @@
 #Specific configuration files
 .env
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
