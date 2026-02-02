@@ -14,13 +14,19 @@ async def ingest_document_endpoint(file: UploadFile = File(...)):
             tmp.write(await file.read())
             tmp_path = tmp.name
 
-        
-        ingest_document(tmp_path)
+        ingest_document(
+            file_path=tmp_path,
+            original_filename=file.filename
+        )
 
-        return {"status": "document ingested", "filename": file.filename}
+        return {
+            "status": "document ingested",
+            "filename": file.filename
+        }
 
     except Exception as e:
-        raise HTTPException(
-            status_code=500,
-            detail=str(e)
-        )
+        raise HTTPException(status_code=500, detail=str(e))
+
+    finally:
+        if "tmp_path" in locals() and os.path.exists(tmp_path):
+            os.remove(tmp_path)
