@@ -14,6 +14,7 @@ async def ingest_document_endpoint(file: UploadFile = File(...)):
             tmp.write(await file.read())
             tmp_path = tmp.name
 
+        
         ingest_document(tmp_path)
 
         return {"status": "document ingested", "filename": file.filename}
