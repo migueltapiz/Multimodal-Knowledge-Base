@@ -1,5 +1,11 @@
+from dotenv import load_dotenv
+from pathlib import Path
+
+load_dotenv(Path(__file__).resolve().parents[2] / ".env")
+
 from fastapi import FastAPI
 from app.api.ingest import router as ingest_router
+from app.api.answer import router as answer_router
 from app.api.health import router as health_router
 
 app = FastAPI(
@@ -9,4 +15,5 @@ app = FastAPI(
 )
 
 app.include_router(health_router, prefix="/health", tags=["Health"])
+app.include_router(answer_router, prefix="/answer", tags=["Answer"])
 app.include_router(ingest_router, prefix="/ingest", tags=["Ingestion"])
